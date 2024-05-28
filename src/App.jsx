@@ -18,7 +18,10 @@ function App() {
     return (
         <>
             <Navbar />
-            <Search />
+            <hr className="my-5 opacity-20" />
+            <section className="flex flex-col items-center justify-center gap-10 mt-10 mb-10">
+                <Search />
+            </section>
             <Card />
             <Footer />
         </>
