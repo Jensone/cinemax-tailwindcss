@@ -6,6 +6,7 @@
  * On importe les composants Navbar, Search,
  * Card et Footer pour les afficher dans App.
  */
+import React from 'react'; // Importation de la librairie React
 
 // Importation des composants
 import Navbar from './components/Navbar';
