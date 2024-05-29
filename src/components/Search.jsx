@@ -26,39 +26,44 @@
  *
  */
 
-import React from 'react'; // Import de React et useState
-import { useState } from 'react';
+import React, { useState } from 'react';
 
-export default function Search() {
-    // Les "States"
-    const [query, setQuery] = useState('RED'); // État pour la requête de recherche
-    const [movies, setMovies] = useState([]); // État pour la réponse de l'API
+export default function Search({ setMovies, setError }) {
+    const [query, setQuery] = useState('');
 
-    // Le "Fetch"
     const searchMovies = async (e) => {
         e.preventDefault();
 
-        const url = `https://omdbapi.com/?apikey=3a097856&s=${query}`; // URL de l'API
+        if (query.trim() === '') {
+            setError('Please enter a search term.');
+            return;
+        }
+
+        const url = `https://omdbapi.com/?apikey=3a097856&s=${query}`;
 
         try {
             const res = await fetch(url);
             const data = await res.json();
-            setMovies(data.Search);
-            console.log(data);
+            if (data.Response === 'True') {
+                setMovies(data.Search);
+                setError('');
+            } else {
+                setError(data.Error);
+                setMovies([]);
+            }
         } catch (error) {
             console.error(error);
-            console.log(
-                "Désolé une erreur s'est produite le du call API : " + data
-            );
+            setError('An error occurred while fetching data.');
+            setMovies([]);
         }
     };
 
     return (
         <>
-            <h1 className="text-3xl text-center">
-                Type the name of any movie or serie
+            <h1 className="my-4 text-3xl text-center">
+                Type the name of any movie or series
             </h1>
-            <form onSubmit={searchMovies}>
+            <form onSubmit={searchMovies} className="flex justify-center mb-4">
                 <input
                     type="text"
                     value={query}
