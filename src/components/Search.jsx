@@ -34,6 +34,11 @@ export default function Search({ setMovies, setError }) {
     const searchMovies = async (e) => {
         e.preventDefault();
 
+        /**
+         * Si l'utilisateur soumet le formulaire sans
+         * entrer de terme de recherche, afficher un message
+         * d'erreur et ne pas effectuer la recherche.
+         */
         if (query.trim() === '') {
             setError('Please enter a search term.');
             return;
@@ -44,17 +49,17 @@ export default function Search({ setMovies, setError }) {
         try {
             const res = await fetch(url);
             const data = await res.json();
-            if (data.Response === 'True') {
-                setMovies(data.Search);
-                setError('');
+            if (data.Response === 'True') { // Vérifier si la réponse est 'True'
+                setMovies(data.Search); // Mettre à jour l'état 'movies' avec les données
+                setError(''); // Réinitialiser le message d'erreur
             } else {
-                setError(data.Error);
-                setMovies([]);
+                setError(data.Error); // Afficher le message d'erreur de l'API
+                setMovies([]); // Réinitialiser la liste des films
             }
         } catch (error) {
-            console.error(error);
-            setError('An error occurred while fetching data.');
-            setMovies([]);
+            console.error(error); // Afficher l'erreur dans la console
+            setError('An error occurred while fetching data.'); // Afficher un message d'erreur générique
+            setMovies([]); // Réinitialiser la liste des films
         }
     };
 
