@@ -32,7 +32,7 @@ const Card = ({ movies }) => {
                     }}
                 >
                     <div className="relative flex items-center justify-center w-full h-full p-2 transition ease-in-out shadow-md duration-320 bg-slate-800 bg-opacity-60 hover:bg-opacity-30">
-                        <p className="text-2xl font-semibold text-center text-white">
+                        <p className="text-2xl font-semibold text-center text-white hover:cursor-default">
                             {movie.Title}
                         </p>
                         <button
