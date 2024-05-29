@@ -12,12 +12,22 @@
 import React, { useState } from 'react';
 
 const Card = ({ movies }) => {
+    /**
+     * On utilise le hook useState pour gérer
+     * l'état des favoris. On initialise l'état
+     * avec un objet vide {}.
+     */
     const [favorites, setFavorites] = useState({});
 
+    /**
+     * La fonction handleFavorite est appelée
+     * lorsqu'un utilisateur clique sur l'icône
+     * de favori d'un film.
+     */
     const handleFavorite = (imdbID) => {
         setFavorites(prevFavs => ({
-            ...prevFavs,
-            [imdbID]: !prevFavs[imdbID]
+            ...prevFavs, // On garde les favoris précédents
+            [imdbID]: !prevFavs[imdbID] // On inverse le statut du favori
         }));
     };
 
@@ -36,7 +46,7 @@ const Card = ({ movies }) => {
                             {movie.Title}
                         </p>
                         <button
-                            onClick={() => handleFavorite(movie.imdbID)}
+                            onClick={() => handleFavorite(movie.imdbID)} // On appelle la fonction handleFavorite
                             className="absolute flex items-center justify-center p-3 top-5 right-5"
                         >
                             <svg
@@ -44,7 +54,7 @@ const Card = ({ movies }) => {
                                     favorites[movie.imdbID]
                                         ? 'text-orange-500'
                                         : 'text-white'
-                                }
+                                } // On change la couleur de l'icône en fonction du favori
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="24"
                                 height="24"
