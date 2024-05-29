@@ -13,7 +13,7 @@ import logo from '../assets/logo.png';
 export default function Navbar() {
     return (
         <>
-            <div className="flex items-center justify-between px-5">
+            <div className="flex items-center justify-between pr-9">
                 <h2>
                     <img src={ logo } alt="Logo Cinemax" width="250" />
                 </h2>
