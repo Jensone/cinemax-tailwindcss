@@ -6,7 +6,6 @@
  * On importe les composants Navbar, Search,
  * Card et Footer pour les afficher dans App.
  */
-import React from 'react'; // Importation de la librairie React
 
 // Importation des composants
 import Navbar from './components/Navbar';
@@ -18,12 +17,12 @@ function App() {
     return (
         <>
             <Navbar />
-            <hr className="my-5 opacity-20" />
+            <hr className="my-5 opacity-10" />
             <section className="flex flex-col items-center justify-center gap-10 mt-10 mb-10">
                 <Search />
             </section>
             <Card />
-            <Footer />
+            <Footer className="mt-10" />
         </>
     );
 }
