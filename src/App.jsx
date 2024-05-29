@@ -89,17 +89,17 @@ let localMovies = [
 ]; // Fin de liste par défaut des films
 
 function App() {
-    const [movies, setMovies] = useState([...localMovies]);
-    const [error, setError] = useState('');
+    const [movies, setMovies] = useState([...localMovies]); // Initialisation de l'état 'movies' avec la liste par défaut
+    const [error, setError] = useState(''); // Initialisation de l'état 'error' avec une chaîne vide
 
     return (
         <>
             <Navbar />
             <hr className="my-5 opacity-10" />
             <section className="flex flex-col items-center justify-center gap-10 mt-10 mb-10">
-                <Search setMovies={setMovies} setError={setError} />
-                {error && <p className="text-orange-500">{error}</p>}
-                {movies.length > 0 && <Card movies={movies} />}
+                <Search setMovies={setMovies} setError={setError} /> {/* On passe les fonctions setMovies et setError en props */}
+                {error && <p className="text-orange-500">{error}</p>} {/* On affiche le message d'erreur s'il existe */}
+                {movies.length > 0 && <Card movies={movies} />} {/* On affiche les films s'il y en a */}
             </section>
             <Footer className="mt-10" />
         </>
