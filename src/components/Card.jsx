@@ -16,7 +16,7 @@ const Card = ({movies}) => {
     return (
         <>
             <div className="flex flex-wrap justify-center">
-                {movies.filter(movie => movie.imdbID).map(movie => (
+                {movies.map((movie) => (
                     <div
                         className="flex flex-col items-center justify-center object-cover w-1/5 m-5 mb-5 transition ease-in-out bg-center bg-no-repeat bg-cover duration-250 rounded-xl h-96 hover:scale-95 hover:shadow-xl"
                         key={movie.imdbID}
