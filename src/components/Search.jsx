@@ -68,7 +68,7 @@ export default function Search({ setMovies, setError }) {
             <h1 className="my-4 text-3xl text-center">
                 Type the name of any movie or series
             </h1>
-            <form onSubmit={searchMovies} className="flex justify-center mb-4">
+            <form onSubmit={searchMovies} className="flex justify-center p-2 mb-4">
                 <input
                     type="text"
                     value={query}
