@@ -11,7 +11,7 @@ Il suffit de lancer la commande dans un terminal pour créer un projet :
 
 ```bash
 
-npx create-vite@latest
+npm create vite@latest
 
 ```
 
@@ -20,8 +20,8 @@ Cette commande va lancer un assistant qui va vous poser quelques questions pour 
 Questions posées :
 
 - **Project name**: Le nom du projet
-- **Select a framework**: Le framework à utiliser (React, Vue, Vanilla, etc.)
-- **Language**: Le langage à utiliser (JavaScript, TypeScript)
+- **Select a framework**: Le framework à utiliser (**React**, Vue, Vanilla, etc.)
+- **Language**: Le langage à utiliser (**JavaScript**, **TypeScript**)
 
 Une fois les questions répondues, le projet sera créé dans un dossier portant le nom du projet.
 
@@ -39,7 +39,7 @@ Le serveur de développement est accessible à l'adresse `http://localhost:5173`
 
 ## Structure du projet
 
-Lancez la commande `code .` pour ouvrir le projet dans Visual Studio Code afin de voir la structure du projet.
+Lancez la commande `code .` pour ouvrir le projet dans Visual Studio Code afin de voir la structure du projet. Dans le cas où on se trouve en dehors du projet (avec le terminal), il suffit de faire la même commande `code nom_du_dossier`.
 
 La structure du projet est la suivante :
 
@@ -50,6 +50,8 @@ nom-du-projet
 ├── public
 │   ├── vite.svg
 ├── src
+│   ├── assets
+│   │   ├── react.svg
 │   ├── App.css
 │   ├── App.jsx
 │   ├── index.css
@@ -67,6 +69,7 @@ nom-du-projet
 - **node_modules**: Contient les dépendances du projet
 - **public**: Contient les fichiers statiques du projet
 - **src**: Contient les fichiers sources du projet
+- **assets**: Contient les fichiers multimédias (images, vidéos, etc.)
 - **.gitignore**: Fichier pour ignorer les fichiers et dossiers dans le dépôt Git
 - **eslintrc.cjs**: Fichier de configuration pour ESLint
 - **index.html**: Fichier HTML principal du projet (point d'entrée) à partir duquel l'application est chargée
@@ -74,6 +77,11 @@ nom-du-projet
 - **package-lock.json**: Fichier de verrouillage des dépendances
 - **README.md**: Fichier de documentation du projet
 - **vite.config.js**: Fichier de configuration de Vite
+
+**Note importante** : Les fichiers tels que les images, les vidéos, les fichiers CSS, etc. doivent être placés dans le dossier `public` en priorité, sinon il est possible de les mettre dans le dossier `src/assets/`. Cela dépends de la manière dont vous souhaitez y accéder : 
+
+- lien direct (public) : `src="vite.svg"`
+- import en js (assets) : `import logo from './assets/react.svg';`
 
 ## Composants React
 
@@ -89,7 +97,7 @@ import React from 'react';
 
 export default function Nav() {
   return (
-    <div>
+    <>
         <nav>
             <ul>
                 <li><a href="#">Home</a></li>
@@ -97,10 +105,32 @@ export default function Nav() {
                 <li><a href="#">Contact</a></li>
             </ul>
         </nav>
-    </div>
+    </>
   );
 }
 
+```
+
+ou
+
+```jsx
+import React from 'react';
+
+function Nav() {
+  return (
+    <>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </>
+  );
+}
+
+export default Nav;
 ```
 
 Pour utiliser ce composant dans un autre composant, il suffit de l'importer et de l'utiliser comme une balise HTML.
