@@ -26,63 +26,65 @@
  *
  */
 
-import React, { useState } from 'react';
+import { useState } from "react";
 
 export default function Search({ setMovies, setError }) {
-    const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
 
-    const searchMovies = async (e) => {
-        e.preventDefault();
+  const searchMovies = async (e) => {
+    e.preventDefault();
 
-        /**
-         * Si l'utilisateur soumet le formulaire sans
-         * entrer de terme de recherche, afficher un message
-         * d'erreur et ne pas effectuer la recherche.
-         */
-        if (query.trim() === '') {
-            setError('Please enter a search term.');
-            return;
-        }
+    /**
+     * Si l'utilisateur soumet le formulaire sans
+     * entrer de terme de recherche, afficher un message
+     * d'erreur et ne pas effectuer la recherche.
+     */
+    if (query.trim() === "") {
+      setError("Please enter a search term.");
+      return;
+    }
 
-        const url = `https://omdbapi.com/?apikey=3a097856&s=${query}`;
+    const url = `https://omdbapi.com/?apikey=3a097856&s=${query}`;
 
-        try {
-            const res = await fetch(url);
-            const data = await res.json();
-            if (data.Response === 'True') { // Vérifier si la réponse est 'True'
-                setMovies(data.Search); // Mettre à jour l'état 'movies' avec les données
-                setError(''); // Réinitialiser le message d'erreur
-            } else {
-                setError(data.Error); // Afficher le message d'erreur de l'API
-                setMovies([]); // Réinitialiser la liste des films
-            }
-        } catch (error) {
-            console.error(error); // Afficher l'erreur dans la console
-            setError('An error occurred while fetching data.'); // Afficher un message d'erreur générique
-            setMovies([]); // Réinitialiser la liste des films
-        }
-    };
+    try {
+      const res = await fetch(url);
+      const data = await res.json();
+      if (data.Response === "True") {
+        // Vérifier si la réponse est 'True'
+        setMovies(data.Search); // Mettre à jour l'état 'movies' avec les données
+        console.log(data.Search);
+        setError(""); // Réinitialiser le message d'erreur
+      } else {
+        setError(data.Error); // Afficher le message d'erreur de l'API
+        setMovies([]); // Réinitialiser la liste des films
+      }
+    } catch (error) {
+      console.error(error); // Afficher l'erreur dans la console
+      setError("An error occurred while fetching data."); // Afficher un message d'erreur générique
+      setMovies([]); // Réinitialiser la liste des films
+    }
+  };
 
-    return (
-        <>
-            <h1 className="my-4 text-3xl text-center">
-                Type the name of any movie or series
-            </h1>
-            <form onSubmit={searchMovies} className="flex justify-center p-2 mb-4">
-                <input
-                    type="text"
-                    value={query}
-                    placeholder="exp. Forest Gump"
-                    className="px-4 py-2 text-black rounded-l-full focus:outline-none"
-                    onChange={(e) => setQuery(e.target.value)}
-                />
-                <button
-                    type="submit"
-                    className="px-4 py-2 text-white bg-orange-500 rounded-r-full hover:bg-orange-700"
-                >
-                    Search
-                </button>
-            </form>
-        </>
-    );
+  return (
+    <>
+      <h1 className="my-4 text-3xl text-center">
+        Type the name of any movie or series
+      </h1>
+      <form onSubmit={searchMovies} className="flex justify-center p-2 mb-4">
+        <input
+          type="text"
+          value={query}
+          placeholder="exp. Forest Gump"
+          className="px-4 py-2 text-black rounded-l-full focus:outline-none"
+          onChange={(e) => setQuery(e.target.value)}
+        />
+        <button
+          type="submit"
+          className="px-4 py-2 text-white bg-orange-500 rounded-r-full hover:bg-orange-700"
+        >
+          Search
+        </button>
+      </form>
+    </>
+  );
 }
