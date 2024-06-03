@@ -7,9 +7,7 @@ export default function Favorites() {
   return (
     <>
       <Navbar />
-      <p>Favorites</p>
-      <Link to="/">Home</Link>
-      <Link to="/account">Account</Link>
+      <h1>Favorites</h1>
       <Footer />
     </>
   );

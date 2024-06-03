@@ -7,10 +7,7 @@ export default function Account() {
   return (
     <>
       <Navbar />
-      <div className="p-5 border-2 w-full text-center">
-        <h1>Account</h1>
-      </div>
-
+      <h1>Account</h1>
       <Footer />
     </>
   );
