@@ -192,6 +192,7 @@ On peut remarquer que les classes Tailwind CSS sont ajoutées directement dans l
 Ce qui donne : `className="bg-gray-800"` au lieu de `class="bg-gray-800"`.
 
 Cela compte également pour d'autre attributs HTML comme `htmlFor` au lieu de `for` ou encore `tabIndex` au lieu de `tabindex`.
+
 ---
 
 ## Gestion des états dans React
@@ -258,7 +259,7 @@ export default Card;
 ```
 ---
 
-## Gestion des rendu dans React
+## Gestion des rendus dans React
 
 Pour la gestion des rendus dans React, il est possible d'utiliser `useEffect` pour effectuer des actions après le rendu du composant.
 
@@ -302,6 +303,7 @@ Afin de réaliser un appel à une API dans un projet React, il est possible d'ut
 Idéalement, nous souhaitons ne pas afficher de code dans le rendu sans les données qui sont censées être affichées. Pour cela, nous pouvons utiliser `try catch` et `await` pour attendre la réponse de l'API.
 
 ```jsx
+
 try {
   // Réaliser la requête HTTP avec fetch
   const res = await fetch(url);
@@ -321,9 +323,11 @@ try {
   setError("An error occurred while fetching data."); // Afficher un message d'erreur générique
   setMovies([]); // Réinitialiser la liste des films
 }
+
 ```
 
 Dans cet exemple, les cartes censées représenter les films ne seront pas affichées si une erreur survient lors de l'appel à l'API. Cela permet d'éviter d'afficher des données incorrectes ou incomplètes.
+
 ---
 
 ## Déploiement d'une application React
