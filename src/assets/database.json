@@ -1,52 +1,20 @@
 [
   {
+    "isFav": true,
     "imdbID": "tt0063823",
     "Title": "Yellow Submarine",
     "Poster": "https://m.media-amazon.com/images/M/MV5BMGExODFmMjQtZTgxOC00ZDE0LWJmM2MtOTQzM2YzNDZlMzNmL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_SX300.jpg"
   },
   {
+    "isFav": true,
     "imdbID": "tt1230385",
     "Title": "The Yellow Sea",
     "Poster": "https://m.media-amazon.com/images/M/MV5BZTU3OTdmOWUtYWE5My00NmFhLTgyMTktNTU0ZTNhMDU1NzEzXkEyXkFqcGdeQXVyMjQwMjk0NjI@._V1_SX300.jpg"
   },
   {
+    "isFav": true,
     "imdbID": "tt0041866",
     "Title": "She Wore a Yellow Ribbon",
     "Poster": "https://m.media-amazon.com/images/M/MV5BYTkyMTM3ZTMtMDc1Mi00ZjRmLTk3NWYtMzFlOGY3Mjg4Mzk2XkEyXkFqcGdeQXVyMDI2NDg0NQ@@._V1_SX300.jpg"
-  },
-  {
-    "imdbID": "tt0954990",
-    "Title": "The Yellow Handkerchief",
-    "Poster": "https://m.media-amazon.com/images/M/MV5BNzg3NzU4NDUzOV5BMl5BanBnXkFtZTcwNDk1Njg5Mg@@._V1_SX300.jpg"
-  },
-  {
-    "imdbID": "tt0040978",
-    "Title": "Yellow Sky",
-    "Poster": "https://m.media-amazon.com/images/M/MV5BYjI1ZGQxMjYtYzQwOC00NmI0LTkwNGItOWY0NjllZDI1YTI5XkEyXkFqcGdeQXVyMjI4MjA5MzA@._V1_SX300.jpg"
-  },
-  {
-    "imdbID": "tt3739110",
-    "Title": "The Yellow Birds",
-    "Poster": "https://m.media-amazon.com/images/M/MV5BY2ExMmI4MTUtNTFmZS00ZjBkLWFjOWEtNjE3MGVkZDQ1ZDZhXkEyXkFqcGdeQXVyNjUzODM0ODI@._V1_SX300.jpg"
-  },
-  {
-    "imdbID": "tt0061834",
-    "Title": "I Am Curious (Yellow)",
-    "Poster": "https://m.media-amazon.com/images/M/MV5BYjY2ZjUwYWItOWRjMS00NjJkLWFjODctMTRjMDM5ZjhkN2U3XkEyXkFqcGdeQXVyNTcwNjUwNzk@._V1_SX300.jpg"
-  },
-  {
-    "imdbID": "tt1580704",
-    "Title": "That Girl in Yellow Boots",
-    "Poster": "https://m.media-amazon.com/images/M/MV5BNzE1YzcyOWMtNjU5OC00ZDQ2LWFkNWItYzI2MjQ5OTllZDVlXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_SX300.jpg"
-  },
-  {
-    "imdbID": "tt0059927",
-    "Title": "The Yellow Rolls-Royce",
-    "Poster": "https://m.media-amazon.com/images/M/MV5BZDc2ZWFmMDEtZWE1Mi00MGQ4LTgzNjktM2Q0ZjJmYWNhODdhXkEyXkFqcGdeQXVyMjI4MjA5MzA@._V1_SX300.jpg"
-  },
-  {
-    "imdbID": "tt0432325",
-    "Title": "The Cave of the Yellow Dog",
-    "Poster": "https://m.media-amazon.com/images/M/MV5BZjdlZmZiYmMtOGY5ZC00ZDkwLWFkNGYtMWY3OTQyOTYzNmY0XkEyXkFqcGdeQXVyNjc3MjQzNTI@._V1_SX300.jpg"
   }
 ]

@@ -10,25 +10,51 @@
  * de la fonction fléchée.
  */
 import { useState } from "react";
+import Database from "../assets/database.json";
 
 const Card = ({ movies }) => {
+  // On récupère les favoris depuis le localStorage
+  const getFavorites = () => {
+    let values = [],
+      keys = Object.keys(localStorage), // On récupère les clés du localStorage
+      i = keys.length; // On récupère la longueur des clés pour la boucle
+    // Tant que i est supérieur à 0
+    while (i--) {
+      // On ajoute les valeurs dans le tableau
+      if (keys[i].includes("tt") && keys[i].length === 9) {
+        values.push(localStorage.getItem(keys[i]));
+      }
+    }
+    return values; // On retourne les valeurs sinon on retourne un tableau vide
+  };
+
   /**
    * On utilise le hook useState pour gérer
    * l'état des favoris. On initialise l'état
    * avec un objet vide {}.
    */
-  const [favorites, setFavorites] = useState({});
+  const [favorites, setFavorites] = useState(getFavorites());
+  const [newFavorites, setNewFavorites] = useState([]);
 
+  favorites.map((fav) => {
+    console.log(fav["isFav"]);
+  });
   /**
-   * La fonction handleFavorite est appelée
-   * lorsqu'un utilisateur clique sur l'icône
-   * de favori d'un film.
+   * Function handleFavorite(param: movie)
+   * Le film est ajouter aux favoris si
+   * il n'est pas déjà présent dans la liste.
+   * Sinon il est retiré des favoris.
    */
-  const handleFavorite = (imdbID) => {
-    setFavorites((prevFavs) => ({
-      ...prevFavs, // On garde les favoris précédents
-      [imdbID]: !prevFavs[imdbID], // On inverse le statut du favori
-    }));
+  const handleFavorite = (movie) => {
+    const movieData = {
+      imdbID: movie.imdbID,
+      Title: movie.Title,
+      Poster: movie.Poster,
+      isFav: true,
+    };
+    localStorage.setItem(movie.imdbID, JSON.stringify(movieData));
+    setFavorites(getFavorites());
+    console.log("Added to favorites");
   };
 
   return (
@@ -46,13 +72,12 @@ const Card = ({ movies }) => {
               {movie.Title}
             </p>
             <button
-              onClick={() => handleFavorite(movie.imdbID)} // On appelle la fonction handleFavorite
+              onClick={() => handleFavorite(movie)} // On appelle la fonction handleFavorite
               className="absolute flex items-center justify-center p-3 top-5 right-5"
             >
+              {console.log(movie.isFav)}
               <svg
-                className={
-                  favorites[movie.imdbID] ? "text-orange-500" : "text-white"
-                } // On change la couleur de l'icône en fonction du favori
+                className={movie.isFav ? "text-orange-500" : "text-white"} // On change la couleur de l'icône en fonction du favori
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
                 height="24"
